@@ -9,7 +9,12 @@
     "compile": "sass css/styles.scss styles.css",
     "watch:scss": "onchange \"css/*.scss\" -- npm run compile",
     "watch:all": "parallelshell \"npm run watch:scss\" \"npm run lite\"",
-    "start": "npm run watch:all"
+    "start": "npm run watch:all",
+    "clean": "rimraf dist",
+    "copyfonts": "copyfiles -f node_modules/font-awesome/fonts/* dist/fonts",
+    "imagemin": "imagemin img/* --out-dir='dist/img'",
+    "usemin": "usemin contactus.html -d dist --htmlmin -o dist/contactus.html && usemin aboutus.html -d dist --htmlmin -o dist/aboutus.html && usemin index.html -d dist --htmlmin -o dist/index.html",
+    "build": "npm run clean && npm run imagemin && npm run copyfonts && npm run usemin"
   },
   "author": "",
   "license": "ISC",
@@ -23,7 +28,11 @@
     "bootstrap": "^4.0.0",
     "bootstrap-social": "^5.1.1",
     "font-awesome": "^4.7.0",
+    "imagemin": "^8.0.1",
     "jquery": "^3.3.1",
-    "popper.js": "^1.12.9"
+    "popper.js": "^1.12.9",
+    "rimraf": "^3.0.2",
+    "uglify-js": "^3.17.4",
+    "usemin-cli": "^0.6.0"
   }
 }
