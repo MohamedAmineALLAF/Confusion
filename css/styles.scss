@@ -75,3 +75,21 @@ body{
     z-index: 1;
 }
 
+
+
+.modal-content {
+    border: 0px;
+  
+    .modal-body,
+    .modal-footer {
+      background-color: $background-pale;
+    }
+  
+    .modal-header {
+      background-color: $background-dark;
+      color: floralwhite;
+      .btn-close {
+        color: floralwhite;
+      }
+    }
+  }
